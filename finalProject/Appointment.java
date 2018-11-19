@@ -15,6 +15,7 @@ public class Appointment {
 	private String timeOfAppt;
 	private String reasonForAppt;
 	private Doctor apptDoctor;
+	private Patient apptPatient;
 	
 	/**
 	 * Class default constructor.
@@ -34,13 +35,15 @@ public class Appointment {
 	 * @param time		the time of the appointment
 	 * @param reason	the reason for the appointment
 	 * @param doc		the doctor of the appointment
+	 * @param pat		the patient who the appointment is for
 	 */
-	public Appointment(String date, String time, String reason, Doctor doc) {
+	public Appointment(String date, String time, String reason, Doctor doc, Patient pat) {
 		super();
 		this.dateOfAppt = date;
 		this.timeOfAppt = time;
 		this.reasonForAppt = reason;
 		this.apptDoctor = doc;
+		this.apptPatient = pat;
 	}
 
 	/**
@@ -113,6 +116,24 @@ public class Appointment {
 	 */
 	public void setApptDoctor(Doctor doc) {
 		this.apptDoctor = doc;
+	}
+
+	/**
+	 * This method returns the patient who the appointment is for.
+	 * 
+	 * @return	the patient who the appointment is for
+	 */
+	public Patient getApptPatient() {
+		return apptPatient;
+	}
+
+	/**
+	 * This method sets the patient who the appointment is for.
+	 * 
+	 * @param pat	the patient who the appointment is for
+	 */
+	public void setApptPatient(Patient pat) {
+		this.apptPatient = pat;
 	}
 
 	/* (non-Javadoc)
