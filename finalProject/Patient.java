@@ -12,7 +12,6 @@ package finalProject;
 public class Patient extends Person {
 	// fields
 	private Doctor primaryDr;
-	private String address;
 	
 	/**
 	 * Class default constructor.
@@ -34,12 +33,10 @@ public class Patient extends Person {
 	 * @param phone		the phone number of the patient
 	 * @param email		the email address of the patient
 	 * @param primaryDr	the primary doctor of the patient
-	 * @param address	the address of the patient
 	 */
-	public Patient(String fName, String lName, int year, int phone, String email, Doctor primaryDr, String address) {
+	public Patient(String fName, String lName, int year, String phone, String email, Doctor primaryDr) {
 		super(fName, lName, year, phone, email);
 		setPrimaryDr(primaryDr);
-		setAddress(address);
 	}
 
 	/**
@@ -60,29 +57,11 @@ public class Patient extends Person {
 		this.primaryDr = primaryDr;
 	}
 
-	/**
-	 * This method returns the address of the patient.
-	 * 
-	 * @return	the primary doctor of the patient
-	 */
-	public String getAddress() {
-		return address;
-	}
-
-	/**
-	 * This method sets the address of the patient.
-	 * 
-	 * @param address	the primary doctor of the patient
-	 */
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Patient [primaryDr=" + primaryDr + ", address=" + address + "]";
+		return "Patient [primaryDr=" + primaryDr + "]";
 	}
 }

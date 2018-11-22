@@ -142,6 +142,6 @@ public class Appointment {
 	@Override
 	public String toString() {
 		return "Appointment [dateOfAppt=" + dateOfAppt + ", timeOfAppt=" + timeOfAppt + ", reasonForAppt="
-				+ reasonForAppt + ", apptDoctor=" + apptDoctor + "]";
+				+ reasonForAppt + ", apptDoctor=" + apptDoctor + ", apptPatient=" + apptPatient + "]";
 	}
 }

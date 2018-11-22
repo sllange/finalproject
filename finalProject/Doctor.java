@@ -36,7 +36,7 @@ public class Doctor extends Person {
 	 * @param spec		the specialization of the doctor
 	 * @param schedule	the schedule of the doctor
 	 */
-	public Doctor(String fName, String lName, int year, int phone, String email, String spec, String sched) {
+	public Doctor(String fName, String lName, int year, String phone, String email, String spec, String sched) {
 		super(fName, lName, year, phone, email);
 		setSpecialization(spec);
 		setSchedule(sched);

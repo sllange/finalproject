@@ -14,7 +14,7 @@ public class Person {
 	private String firstName;
 	private String lastName;
 	private int birthYear;
-	private int phone;
+	private String phone;
 	private String email;
 	
 	/**
@@ -36,7 +36,7 @@ public class Person {
 	 * @param phone	the phone number of the person
 	 * @param email	the email address of the person
 	 */
-	public Person(String fName, String lName, int year, int phone, String email) {
+	public Person(String fName, String lName, int year, String phone, String email) {
 		super();
 		this.firstName = fName;
 		this.lastName = lName;
@@ -104,7 +104,7 @@ public class Person {
 	 * 
 	 * @return	the phone number of the person
 	 */
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
@@ -113,7 +113,7 @@ public class Person {
 	 * 
 	 * @param phone	the phone number of the person
 	 */
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
