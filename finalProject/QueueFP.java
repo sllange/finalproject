@@ -104,31 +104,4 @@ public class QueueFP {
 	public boolean isFull() {
 		return (patientsInQueue == sizeOfQueue);
 	}
-	                                         // ****delete print method after testing ******
-	/**
-	 * This method prints the queue from front to rear.
-	 */
-	public void print() {
-		if(!isEmpty())
-		{
-			if(rear == front)
-			{
-				System.out.println(queueArray[front].toString());
-			}
-			else
-			{
-				for (int i = front; i <= sizeOfQueue - 1; i++)
-				{
-					System.out.println(queueArray[i].toString());
-				}
-				if(rear < front)
-				{
-					for (int i = 0; i <= rear; i++)
-					{
-						System.out.println(queueArray[i].toString());
-					}
-				}
-			}
-		}
-	}
 }

@@ -3,6 +3,8 @@
  */
 package finalProject;
 
+import java.util.ArrayList;
+
 /**
  * The purpose of this class is to create an Appointment object.
  * 
@@ -39,11 +41,12 @@ public class Appointment {
 	 */
 	public Appointment(String date, String time, String reason, Doctor doc, Patient pat) {
 		super();
-		this.dateOfAppt = date;
-		this.timeOfAppt = time;
-		this.reasonForAppt = reason;
-		this.apptDoctor = doc;
-		this.apptPatient = pat;
+		setDateOfAppt(date);
+		setTimeOfAppt(time);
+		setReasonForAppt(reason);
+		setApptDoctor(doc);
+		setApptPatient(pat);
+		removeTimeFromSched();
 	}
 
 	/**
@@ -135,13 +138,43 @@ public class Appointment {
 	public void setApptPatient(Patient pat) {
 		this.apptPatient = pat;
 	}
+	
+	/**
+	 * This method removes the time of this appointment from the doctor's available schedule.
+	 */
+	public void removeTimeFromSched() {
+		ArrayList<DoctorSchedules> sched = this.getApptDoctor().getDailySched();
+		if(sched != null)
+		{
+			for(int i = 0; i < sched.size(); i++)
+			{
+				String apptDate = sched.get(i).getDate();
+				if(apptDate.equals(getDateOfAppt()))
+				{
+					for(int j = 0; j < sched.get(i).getTime().size(); j++)
+					{
+						String time = sched.get(i).getTime().get(j);
+						if(time.equals(this.getTimeOfAppt()))
+						{
+							sched.get(i).removeTime(j);
+							if(sched.get(i).getTime().isEmpty())
+							{
+								sched.remove(i);
+								break;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Appointment [dateOfAppt=" + dateOfAppt + ", timeOfAppt=" + timeOfAppt + ", reasonForAppt="
-				+ reasonForAppt + ", apptDoctor=" + apptDoctor + ", apptPatient=" + apptPatient + "]";
+		return "Date: " + dateOfAppt + ", Time: " + timeOfAppt + ", Patient: " + apptPatient.toString() 
+				+ ", Doctor: " + apptDoctor.toString() + ", Reason: " + reasonForAppt;
 	}
 }

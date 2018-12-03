@@ -34,7 +34,7 @@ public class Patient extends Person {
 	 * @param email		the email address of the patient
 	 * @param primaryDr	the primary doctor of the patient
 	 */
-	public Patient(String fName, String lName, int year, String phone, String email, Doctor primaryDr) {
+	public Patient(String fName, String lName, String year, String phone, String email, Doctor primaryDr) {
 		super(fName, lName, year, phone, email);
 		setPrimaryDr(primaryDr);
 	}
@@ -62,6 +62,6 @@ public class Patient extends Person {
 	 */
 	@Override
 	public String toString() {
-		return "Patient [primaryDr=" + primaryDr + "]";
+		return this.getFirstName() + " " + this.getLastName();
 	}
 }

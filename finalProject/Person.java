@@ -13,7 +13,7 @@ public class Person {
 	// fields
 	private String firstName;
 	private String lastName;
-	private int birthYear;
+	private String birthYear;
 	private String phone;
 	private String email;
 	
@@ -36,13 +36,13 @@ public class Person {
 	 * @param phone	the phone number of the person
 	 * @param email	the email address of the person
 	 */
-	public Person(String fName, String lName, int year, String phone, String email) {
+	public Person(String fName, String lName, String year, String phone, String email) {
 		super();
-		this.firstName = fName;
-		this.lastName = lName;
-		this.birthYear = year;
-		this.phone = phone;
-		this.email = email;
+		setFirstName(fName);
+		setLastName(lName);
+		setBirthYear(year);
+		setPhone(phone);
+		setEmail(email);
 	}
 
 	/**
@@ -86,7 +86,7 @@ public class Person {
 	 * 
 	 * @return	the birth year of the person
 	 */
-	public int getBirthYear() {
+	public String getBirthYear() {
 		return birthYear;
 	}
 
@@ -95,7 +95,7 @@ public class Person {
 	 * 
 	 * @param year the birth year of the person
 	 */
-	public void setBirthYear(int year) {
+	public void setBirthYear(String year) {
 		this.birthYear = year;
 	}
 

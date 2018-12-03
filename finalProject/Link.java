@@ -12,8 +12,10 @@ package finalProject;
 public class Link {
 	// fields
 	public Appointment appData;
+	public Doctor docData;
+	public Patient patData;
 	public Link next;
-	
+
 	/**
 	 * Constructor that accepts a parameter
 	 * with the appointment data.
@@ -26,10 +28,43 @@ public class Link {
 	}
 	
 	/**
-	 * This method displays the appointment data.
+	 * Constructor that accepts a parameter
+	 * with the doctor data.
+	 * 
+	 * @param docData	the doctor data
+	 */
+	public Link(Doctor docData) {
+		super();
+		this.docData = docData;
+	}
+	
+	/**
+	 * Constructor that accepts a parameter
+	 * with the patient data.
+	 * 
+	 * @param patData	the patient data
+	 */
+	public Link(Patient patData) {
+		super();
+		this.patData = patData;
+	}
+	
+	/**
+	 * This method displays the link's data.
 	 */
 	public void displayLink()
 	{
-		System.out.println(appData);
+		if(appData != null)
+		{
+			System.out.println(appData);
+		}
+		if(docData != null)
+		{
+			System.out.println(docData.getFirstName() + " " + docData.getLastName());
+		}
+		if(patData != null)
+		{
+			System.out.println(patData.getFirstName() + " " + patData.getLastName());
+		}	
 	}
 }
