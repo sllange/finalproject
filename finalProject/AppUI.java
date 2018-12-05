@@ -35,7 +35,7 @@ import java.awt.Cursor;
 
 public class AppUI {
 	// fields
-	JFrame frame;
+	JFrame frmMedicalClinicScheduling;
 	JTable tableApp;
 	JTable tableDoc;
 	JTable tablePat;
@@ -66,14 +66,16 @@ public class AppUI {
 	 */
 	@SuppressWarnings("serial")
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 946, 675);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmMedicalClinicScheduling = new JFrame();
+		frmMedicalClinicScheduling.setTitle("Medical Clinic Scheduling System");
+		frmMedicalClinicScheduling.setBounds(100, 100, 946, 675);
+		frmMedicalClinicScheduling.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JDesktopPane desktopPane = new JDesktopPane();
-		frame.getContentPane().add(desktopPane, BorderLayout.CENTER);
+		frmMedicalClinicScheduling.getContentPane().add(desktopPane, BorderLayout.CENTER);
 		
 		JTabbedPane tabbedPaneMain = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPaneMain.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		tabbedPaneMain.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		tabbedPaneMain.setBounds(0, 0, 930, 635);
 		desktopPane.add(tabbedPaneMain);
@@ -83,8 +85,9 @@ public class AppUI {
 		tabbedPaneMain.addTab("Appointments", null, layeredPaneApp, null);
 		
 		JTabbedPane tabbedPaneApp = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPaneApp.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		tabbedPaneApp.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-		tabbedPaneApp.setBounds(0, 0, 925, 610);
+		tabbedPaneApp.setBounds(0, 0, 925, 595);
 		layeredPaneApp.add(tabbedPaneApp);
 		
 		/* ----- Appointments View Tab ----- */
@@ -121,6 +124,7 @@ public class AppUI {
 		tabbedPaneApp.addTab("Add", null, layeredPaneAppAdd, null);
 		
 		comboBoxDate = new JComboBox<Object>();
+		comboBoxDate.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		comboBoxDate.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		comboBoxDate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -140,24 +144,26 @@ public class AppUI {
 		layeredPaneAppAdd.add(comboBoxDate);
 		
 		Label lblDateA = new Label("Date");
-		lblDateA.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblDateA.setFont(new Font("Dialog", Font.BOLD, 15));
 		lblDateA.setAlignment(Label.RIGHT);
 		lblDateA.setBounds(212, 93, 73, 34);
 		layeredPaneAppAdd.add(lblDateA);
 		
 		comboBoxTime = new JComboBox<Object>();
+		comboBoxTime.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		comboBoxTime.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		comboBoxTime.setModel(new DefaultComboBoxModel<Object>());
 		comboBoxTime.setBounds(291, 185, 152, 34);
 		layeredPaneAppAdd.add(comboBoxTime);
 		
 		Label lblTimeA = new Label("Time");
-		lblTimeA.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblTimeA.setFont(new Font("Dialog", Font.BOLD, 15));
 		lblTimeA.setAlignment(Label.RIGHT);
 		lblTimeA.setBounds(212, 185, 73, 34);
 		layeredPaneAppAdd.add(lblTimeA);
 		
 		comboBoxDoc = new JComboBox<Doctor>();
+		comboBoxDoc.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		comboBoxDoc.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		comboBoxDoc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -170,30 +176,32 @@ public class AppUI {
 		layeredPaneAppAdd.add(comboBoxDoc);
 		
 		Label lblDocA = new Label("Doctor");
-		lblDocA.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblDocA.setFont(new Font("Dialog", Font.BOLD, 15));
 		lblDocA.setAlignment(Label.RIGHT);
 		lblDocA.setBounds(472, 93, 73, 34);
 		layeredPaneAppAdd.add(lblDocA);
 		
 		comboBoxPat = new JComboBox<Patient>();
+		comboBoxPat.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		comboBoxPat.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		comboBoxPat.setModel(new DefaultComboBoxModel<Patient>());
 		comboBoxPat.setBounds(551, 185, 152, 34);
 		layeredPaneAppAdd.add(comboBoxPat);
 		
 		Label lblPatA = new Label("Patient");
-		lblPatA.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblPatA.setFont(new Font("Dialog", Font.BOLD, 15));
 		lblPatA.setAlignment(Label.RIGHT);
 		lblPatA.setBounds(472, 185, 73, 34);
 		layeredPaneAppAdd.add(lblPatA);
 		
 		TextArea txtReasonA = new TextArea();
+		txtReasonA.setFont(new Font("Dialog", Font.PLAIN, 15));
 		txtReasonA.setRows(5);
 		txtReasonA.setBounds(399, 283, 225, 96);
 		layeredPaneAppAdd.add(txtReasonA);
 		
 		Label lblReasonA = new Label("Reason");
-		lblReasonA.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblReasonA.setFont(new Font("Dialog", Font.BOLD, 15));
 		lblReasonA.setAlignment(Label.RIGHT);
 		lblReasonA.setBounds(320, 282, 73, 34);
 		layeredPaneAppAdd.add(lblReasonA);
@@ -221,6 +229,7 @@ public class AppUI {
 		layeredPaneAppAdd.add(lblPatientQueueApp);
 		
 		JButton btnRemoveFromQueue = new JButton("<html>Remove<br/>&nbsp;&nbsp;&nbsp;From<br/>&nbsp;Queue</html>");
+		btnRemoveFromQueue.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnRemoveFromQueue.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRemoveFromQueue.setVisible(false);
 		btnRemoveFromQueue.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -325,7 +334,7 @@ public class AppUI {
 		layeredPaneAppCancel.add(lblDateAppCxlCurrent);
 		
 		Label lblDateAppCxl = new Label("Date");
-		lblDateAppCxl.setFont(new Font("Diaglog", Font.PLAIN, 15));
+		lblDateAppCxl.setFont(new Font("Dialog", Font.BOLD, 15));
 		lblDateAppCxl.setAlignment(Label.RIGHT);
 		lblDateAppCxl.setBounds(367, 93, 73, 34);
 		layeredPaneAppCancel.add(lblDateAppCxl);
@@ -337,7 +346,7 @@ public class AppUI {
 		layeredPaneAppCancel.add(lblTimeAppCxlCurrent);
 		
 		Label lblTimeAppCxl = new Label("Time");
-		lblTimeAppCxl.setFont(new Font("Diaglog", Font.PLAIN, 15));
+		lblTimeAppCxl.setFont(new Font("Dialog", Font.BOLD, 15));
 		lblTimeAppCxl.setAlignment(Label.RIGHT);
 		lblTimeAppCxl.setBounds(367, 185, 73, 34);
 		layeredPaneAppCancel.add(lblTimeAppCxl);
@@ -349,7 +358,7 @@ public class AppUI {
 		layeredPaneAppCancel.add(lblDocAppCxlCurrent);
 		
 		Label lblDocAppCxl = new Label("Doctor");
-		lblDocAppCxl.setFont(new Font("Diaglog", Font.PLAIN, 15));
+		lblDocAppCxl.setFont(new Font("Dialog", Font.BOLD, 15));
 		lblDocAppCxl.setAlignment(Label.RIGHT);
 		lblDocAppCxl.setBounds(623, 93, 73, 34);
 		layeredPaneAppCancel.add(lblDocAppCxl);
@@ -361,18 +370,19 @@ public class AppUI {
 		layeredPaneAppCancel.add(lblPatAppCxlCurrent);
 		
 		Label lblPatAppCxl = new Label("Patient");
-		lblPatAppCxl.setFont(new Font("Diaglog", Font.PLAIN, 15));
+		lblPatAppCxl.setFont(new Font("Dialog", Font.BOLD, 15));
 		lblPatAppCxl.setAlignment(Label.RIGHT);
 		lblPatAppCxl.setBounds(623, 185, 73, 34);
 		layeredPaneAppCancel.add(lblPatAppCxl);
 		
 		TextArea txtReasonAppCxl = new TextArea();
+		txtReasonAppCxl.setFont(new Font("Dialog", Font.PLAIN, 15));
 		txtReasonAppCxl.setRows(5);
 		txtReasonAppCxl.setBounds(554, 283, 225, 96);
 		layeredPaneAppCancel.add(txtReasonAppCxl);
 		
 		Label lblReasonAppCxl = new Label("Reason");
-		lblReasonAppCxl.setFont(new Font("Diaglog", Font.PLAIN, 15));
+		lblReasonAppCxl.setFont(new Font("Dialog", Font.BOLD, 15));
 		lblReasonAppCxl.setAlignment(Label.RIGHT);
 		lblReasonAppCxl.setBounds(475, 282, 73, 34);
 		layeredPaneAppCancel.add(lblReasonAppCxl);
@@ -423,6 +433,7 @@ public class AppUI {
 		scrollPaneAppCxl.setBounds(64, 93, 269, 428);
 		layeredPaneAppCancel.add(scrollPaneAppCxl);
 		listApp = new JList<Appointment>(listModelApp);
+		listApp.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		scrollPaneAppCxl.setViewportView(listApp);
 		listApp.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		listApp.addListSelectionListener(new ListSelectionListener() {
@@ -444,7 +455,8 @@ public class AppUI {
 		tabbedPaneMain.addTab("Doctors", null, layeredPaneDoc, null);
 		
 		JTabbedPane tabbedPaneDoc = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPaneDoc.setBounds(0, 0, 925, 610);
+		tabbedPaneDoc.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		tabbedPaneDoc.setBounds(0, 0, 925, 595);
 		layeredPaneDoc.add(tabbedPaneDoc);
 		
 		/* ----- Doctors View Tab ----- */
@@ -487,7 +499,7 @@ public class AppUI {
 		layeredPaneDocAdd.add(txtFirstD);
 		
 		Label lblFirstD = new Label("First Name");
-		lblFirstD.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblFirstD.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblFirstD.setAlignment(Label.RIGHT);
 		lblFirstD.setBounds(200, 52, 85, 34);
 		layeredPaneDocAdd.add(lblFirstD);
@@ -498,7 +510,7 @@ public class AppUI {
 		layeredPaneDocAdd.add(txtLastD);
 		
 		Label lblLastD = new Label("Last Name");
-		lblLastD.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblLastD.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblLastD.setAlignment(Label.RIGHT);
 		lblLastD.setBounds(460, 52, 85, 34);
 		layeredPaneDocAdd.add(lblLastD);
@@ -509,7 +521,7 @@ public class AppUI {
 		layeredPaneDocAdd.add(txtPhoneD);
 		
 		Label lblPhoneD = new Label("Phone");
-		lblPhoneD.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblPhoneD.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblPhoneD.setAlignment(Label.RIGHT);
 		lblPhoneD.setBounds(200, 138, 85, 34);
 		layeredPaneDocAdd.add(lblPhoneD);
@@ -520,12 +532,13 @@ public class AppUI {
 		layeredPaneDocAdd.add(txtEmailD);
 		
 		Label lblEmailD = new Label("Email");
-		lblEmailD.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblEmailD.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblEmailD.setAlignment(Label.RIGHT);
 		lblEmailD.setBounds(460, 138, 85, 34);
 		layeredPaneDocAdd.add(lblEmailD);
 		
 		JComboBox<Object> comboBoxYearD = new JComboBox<Object>();
+		comboBoxYearD.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		comboBoxYearD.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		comboBoxYearD.setModel(new DefaultComboBoxModel<Object>());
 		comboBoxYearD.setBounds(551, 224, 152, 34);
@@ -536,30 +549,32 @@ public class AppUI {
 		}
 		
 		Label lblYearD = new Label("Year of Birth");
-		lblYearD.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblYearD.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblYearD.setAlignment(Label.RIGHT);
 		lblYearD.setBounds(460, 224, 85, 34);
 		layeredPaneDocAdd.add(lblYearD);
 		
 		JComboBox<Object> comboBoxSpec = new JComboBox<Object>();
+		comboBoxSpec.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		comboBoxSpec.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		comboBoxSpec.setModel(new DefaultComboBoxModel<Object>(new String[] {"Family", "Pediatrician", "Surgeon", "Dermatologist", "Anesthesiologist", "Emergency"}));
 		comboBoxSpec.setBounds(291, 224, 152, 34);
 		layeredPaneDocAdd.add(comboBoxSpec);
 		
 		Label lblSpec = new Label("Specialty");
-		lblSpec.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblSpec.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblSpec.setAlignment(Label.RIGHT);
 		lblSpec.setBounds(200, 224, 85, 34);
 		layeredPaneDocAdd.add(lblSpec);
 		
 		Label lblSched = new Label("Schedule");
-		lblSched.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblSched.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblSched.setAlignment(Label.RIGHT);
 		lblSched.setBounds(200, 310, 85, 34);
 		layeredPaneDocAdd.add(lblSched);
 		
 		JComboBox<Object> comboBoxSched = new JComboBox<Object>();
+		comboBoxSched.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		comboBoxSched.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		comboBoxSched.setModel(new DefaultComboBoxModel<Object>(new String[] {"6AM-3PM", "7AM-4PM", "8AM-5PM", "9AM-6PM", "10AM-7PM"}));
 		comboBoxSched.setBounds(291, 310, 152, 34);
@@ -621,7 +636,7 @@ public class AppUI {
 		layeredPaneDocUpdate.add(txtFirstDocUp);
 		
 		Label lblFirstDocUp = new Label("First Name");
-		lblFirstDocUp.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblFirstDocUp.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblFirstDocUp.setAlignment(Label.RIGHT);
 		lblFirstDocUp.setBounds(279, 52, 85, 34);
 		layeredPaneDocUpdate.add(lblFirstDocUp);
@@ -632,7 +647,7 @@ public class AppUI {
 		layeredPaneDocUpdate.add(txtLastDocUp);
 		
 		Label lblLastDocUp = new Label("Last Name");
-		lblLastDocUp.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblLastDocUp.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblLastDocUp.setAlignment(Label.RIGHT);
 		lblLastDocUp.setBounds(611, 52, 85, 34);
 		layeredPaneDocUpdate.add(lblLastDocUp);
@@ -643,7 +658,7 @@ public class AppUI {
 		layeredPaneDocUpdate.add(txtPhoneDocUp);
 		
 		Label lblPhoneDocUp = new Label("Phone");
-		lblPhoneDocUp.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblPhoneDocUp.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblPhoneDocUp.setAlignment(Label.RIGHT);
 		lblPhoneDocUp.setBounds(279, 138, 85, 34);
 		layeredPaneDocUpdate.add(lblPhoneDocUp);
@@ -654,12 +669,13 @@ public class AppUI {
 		layeredPaneDocUpdate.add(txtEmailDocUp);
 		
 		Label lblEmailDocUp = new Label("Email");
-		lblEmailDocUp.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblEmailDocUp.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblEmailDocUp.setAlignment(Label.RIGHT);
 		lblEmailDocUp.setBounds(611, 138, 85, 34);
 		layeredPaneDocUpdate.add(lblEmailDocUp);
 		
 		JComboBox<Object> comboBoxYearDocUp = new JComboBox<Object>();
+		comboBoxYearDocUp.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		comboBoxYearDocUp.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		comboBoxYearDocUp.setModel(new DefaultComboBoxModel<Object>());
 		comboBoxYearDocUp.setBounds(702, 224, 152, 34);
@@ -670,30 +686,32 @@ public class AppUI {
 		}
 		
 		Label lblYearDocUp = new Label("Year of Birth");
-		lblYearDocUp.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblYearDocUp.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblYearDocUp.setAlignment(Label.RIGHT);
 		lblYearDocUp.setBounds(611, 224, 85, 34);
 		layeredPaneDocUpdate.add(lblYearDocUp);
 		
 		JComboBox<Object> comboBoxSpecDocUp = new JComboBox<Object>();
+		comboBoxSpecDocUp.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		comboBoxSpecDocUp.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		comboBoxSpecDocUp.setModel(new DefaultComboBoxModel<Object>(new String[] {"Family", "Pediatrician", "Surgeon", "Dermatologist", "Anesthesiologist", "Emergency"}));
 		comboBoxSpecDocUp.setBounds(370, 224, 152, 34);
 		layeredPaneDocUpdate.add(comboBoxSpecDocUp);
 		
 		Label lblSpecDocUp = new Label("Specialty");
-		lblSpecDocUp.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblSpecDocUp.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblSpecDocUp.setAlignment(Label.RIGHT);
 		lblSpecDocUp.setBounds(279, 224, 85, 34);
 		layeredPaneDocUpdate.add(lblSpecDocUp);
 		
 		Label lblSchedDocUp = new Label("Schedule");
-		lblSchedDocUp.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblSchedDocUp.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblSchedDocUp.setAlignment(Label.RIGHT);
 		lblSchedDocUp.setBounds(279, 310, 85, 34);
 		layeredPaneDocUpdate.add(lblSchedDocUp);
 		
 		JComboBox<Object> comboBoxSchedDocUp = new JComboBox<Object>();
+		comboBoxSchedDocUp.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		comboBoxSchedDocUp.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		comboBoxSchedDocUp.setModel(new DefaultComboBoxModel<Object>(new String[] {"6AM-3PM", "7AM-4PM", "8AM-5PM", "9AM-6PM", "10AM-7PM"}));
 		comboBoxSchedDocUp.setBounds(370, 310, 152, 34);
@@ -786,7 +804,8 @@ public class AppUI {
 		tabbedPaneMain.addTab("Patients", null, layeredPanePat, null);
 		
 		JTabbedPane tabbedPanePat = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPanePat.setBounds(0, 0, 925, 610);
+		tabbedPanePat.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		tabbedPanePat.setBounds(0, 0, 925, 595);
 		layeredPanePat.add(tabbedPanePat);
 		
 		/* ----- Patients View Tab ----- */
@@ -823,7 +842,7 @@ public class AppUI {
 		tabbedPanePat.addTab("Add", null, layeredPanePatAdd, null);
 		
 		Label lblFirstP = new Label("First Name");
-		lblFirstP.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblFirstP.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblFirstP.setAlignment(Label.RIGHT);
 		lblFirstP.setBounds(200, 52, 85, 34);
 		layeredPanePatAdd.add(lblFirstP);
@@ -834,7 +853,7 @@ public class AppUI {
 		layeredPanePatAdd.add(txtFirstP);
 		
 		Label lblLastP = new Label("Last Name");
-		lblLastP.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblLastP.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblLastP.setAlignment(Label.RIGHT);
 		lblLastP.setBounds(460, 52, 85, 34);
 		layeredPanePatAdd.add(lblLastP);
@@ -845,7 +864,7 @@ public class AppUI {
 		layeredPanePatAdd.add(txtLastP);
 		
 		Label lblPhoneP = new Label("Phone");
-		lblPhoneP.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblPhoneP.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblPhoneP.setAlignment(Label.RIGHT);
 		lblPhoneP.setBounds(200, 138, 85, 34);
 		layeredPanePatAdd.add(lblPhoneP);
@@ -856,7 +875,7 @@ public class AppUI {
 		layeredPanePatAdd.add(txtPhoneP);
 		
 		Label lblEmailP = new Label("Email");
-		lblEmailP.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblEmailP.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblEmailP.setAlignment(Label.RIGHT);
 		lblEmailP.setBounds(460, 138, 85, 34);
 		layeredPanePatAdd.add(lblEmailP);
@@ -867,12 +886,13 @@ public class AppUI {
 		layeredPanePatAdd.add(txtEmailP);
 		
 		Label lblYearP = new Label("Year of Birth");
-		lblYearP.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblYearP.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblYearP.setAlignment(Label.RIGHT);
 		lblYearP.setBounds(460, 224, 85, 34);
 		layeredPanePatAdd.add(lblYearP);
 		
 		JComboBox<Object> comboBoxYearP = new JComboBox<Object>();
+		comboBoxYearP.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		comboBoxYearP.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		comboBoxYearP.setModel(new DefaultComboBoxModel<Object>());
 		comboBoxYearP.setBounds(551, 224, 152, 34);
@@ -883,13 +903,14 @@ public class AppUI {
 		}
 
 		comboBoxPrim = new JComboBox<Doctor>();
+		comboBoxPrim.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		comboBoxPrim.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		comboBoxPrim.setModel(new DefaultComboBoxModel<Doctor>());
 		comboBoxPrim.setBounds(291, 224, 152, 34);
 		layeredPanePatAdd.add(comboBoxPrim);
 		
 		Label lblPrim = new Label("Primary Dr");
-		lblPrim.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblPrim.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblPrim.setAlignment(Label.RIGHT);
 		lblPrim.setBounds(200, 224, 85, 34);
 		layeredPanePatAdd.add(lblPrim);
@@ -947,7 +968,7 @@ public class AppUI {
 		layeredPanePatUpdate.setLayout(null);
 		
 		Label lblFirstPatUp = new Label("First Name");
-		lblFirstPatUp.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblFirstPatUp.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblFirstPatUp.setAlignment(Label.RIGHT);
 		lblFirstPatUp.setBounds(279, 52, 85, 34);
 		layeredPanePatUpdate.add(lblFirstPatUp);
@@ -958,7 +979,7 @@ public class AppUI {
 		layeredPanePatUpdate.add(txtFirstPatUp);
 		
 		Label lblLastPatUp = new Label("Last Name");
-		lblLastPatUp.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblLastPatUp.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblLastPatUp.setAlignment(Label.RIGHT);
 		lblLastPatUp.setBounds(611, 52, 85, 34);
 		layeredPanePatUpdate.add(lblLastPatUp);
@@ -969,7 +990,7 @@ public class AppUI {
 		layeredPanePatUpdate.add(txtLastPatUp);
 		
 		Label lblPhonePatUp = new Label("Phone");
-		lblPhonePatUp.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblPhonePatUp.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblPhonePatUp.setAlignment(Label.RIGHT);
 		lblPhonePatUp.setBounds(279, 138, 85, 34);
 		layeredPanePatUpdate.add(lblPhonePatUp);
@@ -980,7 +1001,7 @@ public class AppUI {
 		layeredPanePatUpdate.add(txtPhonePatUp);
 		
 		Label lblEmailPatUp = new Label("Email");
-		lblEmailPatUp.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblEmailPatUp.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblEmailPatUp.setAlignment(Label.RIGHT);
 		lblEmailPatUp.setBounds(611, 138, 85, 34);
 		layeredPanePatUpdate.add(lblEmailPatUp);
@@ -991,11 +1012,13 @@ public class AppUI {
 		layeredPanePatUpdate.add(txtEmailPatUp);
 		
 		Label lblYearPatUp = new Label("Year of Birth");
+		lblYearPatUp.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblYearPatUp.setAlignment(Label.RIGHT);
 		lblYearPatUp.setBounds(611, 224, 85, 34);
 		layeredPanePatUpdate.add(lblYearPatUp);
 		
 		JComboBox<Object> comboBoxYearPatUp = new JComboBox<Object>();
+		comboBoxYearPatUp.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		comboBoxYearPatUp.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		comboBoxYearPatUp.setModel(new DefaultComboBoxModel<Object>());
 		comboBoxYearPatUp.setBounds(702, 224, 152, 34);
@@ -1006,13 +1029,14 @@ public class AppUI {
 		}
 
 		comboBoxPrimPatUp = new JComboBox<Doctor>();
+		comboBoxPrimPatUp.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		comboBoxPrimPatUp.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		comboBoxPrimPatUp.setModel(new DefaultComboBoxModel<Doctor>());
 		comboBoxPrimPatUp.setBounds(370, 224, 152, 34);
 		layeredPanePatUpdate.add(comboBoxPrimPatUp);
 		
 		Label lblPrimPatUp = new Label("Primary Dr");
-		lblPrimPatUp.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblPrimPatUp.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblPrimPatUp.setAlignment(Label.RIGHT);
 		lblPrimPatUp.setBounds(279, 224, 85, 34);
 		layeredPanePatUpdate.add(lblPrimPatUp);

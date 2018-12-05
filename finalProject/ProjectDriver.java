@@ -223,7 +223,7 @@ public class ProjectDriver {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					window.frame.setVisible(true);
+					window.frmMedicalClinicScheduling.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -243,8 +243,8 @@ public class ProjectDriver {
 		pats.insert(pat1);
 		pats.insert(pat2);
 		patTable();
-		Appointment app1 = new Appointment("12-8", "08AM", "Flu", doc2, pat2);
-		Appointment app2 = new Appointment("12-9", "10AM", "Physical", doc1, pat1);
+		Appointment app1 = new Appointment("12-11", "08AM", "Flu", doc2, pat2);
+		Appointment app2 = new Appointment("12-12", "10AM", "Physical", doc1, pat1);
 		apps = new LinkedList();
 		apps.insert(app1);
 		apps.insert(app2);

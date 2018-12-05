@@ -51,7 +51,22 @@ public class DoctorSchedules {
 	 * @param date	the date of the available appointments
 	 */
 	public void setDate(int month, int day) {
-		this.date = month + "-" + day;
+		String dayString = "";
+		if(day < 10)
+		{
+			for(int i = 0; i < 10; i++)
+			{
+				if(day == i)
+				{
+					dayString = "0" + i;
+				}
+			}
+			this.date = month + "-" + dayString;
+		}
+		else
+		{
+			this.date = month + "-" + day;
+		}
 	}
 
 	/**
