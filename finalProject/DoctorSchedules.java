@@ -88,23 +88,23 @@ public class DoctorSchedules {
 		String inSched = getWorkHours();
 		switch(inSched) {
 		case "6AM-3PM":
-			ArrayList<String> sched1 = new ArrayList<String>(Arrays.asList("06AM","07AM","08AM","09AM","10AM","12PM","1PM","2PM","3PM"));
+			ArrayList<String> sched1 = new ArrayList<String>(Arrays.asList("06AM","07AM","08AM","09AM","10AM","12PM","1PM","2PM"));
 			slots = sched1;
 			break;
 		case "7AM-4PM":
-			ArrayList<String> sched2 = new ArrayList<String>(Arrays.asList("07AM","08AM","09AM","10AM","11AM","1PM","2PM","3PM","4PM"));
+			ArrayList<String> sched2 = new ArrayList<String>(Arrays.asList("07AM","08AM","09AM","10AM","11AM","1PM","2PM","3PM"));
 			slots = sched2;
 			break;
 		case "8AM-5PM":
-			ArrayList<String> sched3 = new ArrayList<String>(Arrays.asList("08AM","09AM","10AM","11AM","12PM","2PM","3PM","4PM","5PM"));
+			ArrayList<String> sched3 = new ArrayList<String>(Arrays.asList("08AM","09AM","10AM","11AM","12PM","2PM","3PM","4PM"));
 			slots = sched3;
 			break;
 		case "9AM-6PM":
-			ArrayList<String> sched4 = new ArrayList<String>(Arrays.asList("09AM","10AM","11AM","12PM","1PM","3PM","4PM","5PM","6PM"));
+			ArrayList<String> sched4 = new ArrayList<String>(Arrays.asList("09AM","10AM","11AM","12PM","1PM","3PM","4PM","5PM"));
 			slots = sched4;
 			break;
 		case "10AM-7PM":
-			ArrayList<String> sched5 = new ArrayList<String>(Arrays.asList("10AM","11AM","12PM","1PM","2PM","4PM","5PM","6PM","7PM"));
+			ArrayList<String> sched5 = new ArrayList<String>(Arrays.asList("10AM","11AM","12PM","1PM","2PM","4PM","5PM","6PM"));
 			slots = sched5;
 			break;
 		default:
